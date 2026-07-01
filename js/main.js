@@ -1,89 +1,151 @@
 document.addEventListener("DOMContentLoaded", () => {
+
+  // =====================
+  // ELEMENTS
+  // =====================
   const tag = document.querySelector(".tag");
   const card = document.querySelector(".card");
+  const intro = document.querySelector(".intro");
   const about = document.querySelector("#about");
 
+  const nav = document.querySelector(".gnb");
+  const sections = document.querySelectorAll("section[id]");
+  const navLinks = document.querySelectorAll(".gnb a");
+
+  const textEl = document.querySelector(".text");
+
+  // =====================
+  // INTRO TYPE
+  // =====================
+  const text = "HELLO, THIS IS JUHEE'S PORTFOLIO OPEN IT!";
+  let i = 0;
+
+  textEl.innerHTML = "";
+
+  function type() {
+    if (i < text.length) {
+      textEl.innerHTML += text[i++];
+      setTimeout(type, 60);
+    }
+  }
+
+  type();
+
+  // =====================
+  // INTRO CLICK
+  // =====================
   tag.addEventListener("click", () => {
-    // 봉투 열기 애니메이션
     card.classList.add("open");
 
-    // 애니메이션 후 About으로 이동
     setTimeout(() => {
-      about.scrollIntoView({
-        behavior: "smooth",
-        block: "start",
-      });
-    }, 900);
+      const y = about.getBoundingClientRect().top + window.scrollY;
+
+      window.scrollTo({ top: y, behavior: "smooth" });
+    }, 800);
+
+    setTimeout(() => {
+      intro.classList.add("hide");
+    }, 1000);
+
+    setTimeout(() => {
+      intro.remove();
+    }, 1800);
   });
-});
 
-const nav = document.querySelector(".gnb");
-const intro = document.querySelector(".intro");
+  // =====================
+  // NAV ACTIVE (scroll only)
+  // =====================
+  function setActive() {
+    let current = "";
 
-window.addEventListener("scroll", () => {
-  const introBottom = intro.offsetHeight;
+    sections.forEach((section) => {
+      const rect = section.getBoundingClientRect();
+      if (rect.top <= window.innerHeight * 0.4) {
+        current = section.id;
+      }
+    });
 
-  if (window.scrollY >= introBottom - 100) {
-    nav.classList.add("show");
-  } else {
-    nav.classList.remove("show");
+    navLinks.forEach((link) => {
+      link.classList.toggle(
+        "active",
+        link.getAttribute("href") === `#${current}`
+      );
+    });
   }
-});
-const items = document.querySelectorAll(".design-item img");
-const modal = document.getElementById("modal");
-const modalImg = document.getElementById("modal-img");
-const modalText = document.getElementById("modal-text");
-const closeBtn = document.querySelector(".close");
-const modalBg = document.querySelector(".modal-bg");
 
-// 열기
-items.forEach((img) => {
-  img.addEventListener("click", () => {
-    modal.classList.add("show");
+  // =====================
+  // NAV SHOW
+  // =====================
+  function toggleNav() {
+    if (!intro) return;
 
-    modalImg.src = img.dataset.detail;
-    modalText.innerText = img.nextElementSibling.innerText;
+    const introBottom =
+      intro.getBoundingClientRect().bottom + window.scrollY;
+
+    nav.classList.toggle("show", window.scrollY > introBottom - 100);
+  }
+
+  window.addEventListener("scroll", () => {
+    toggleNav();
+    setActive();
   });
-});
 
-// 닫기
-function closeModal() {
-  modal.classList.remove("show");
-  modalImg.src = "";
-}
+  toggleNav();
+  setActive();
 
-closeBtn.addEventListener("click", closeModal);
-modalBg.addEventListener("click", closeModal);
+  // =====================
+  // MODAL
+  // =====================
+  const items = document.querySelectorAll(".design-item img");
+  const modal = document.getElementById("modal");
+  const modalImg = document.getElementById("modal-img");
+  const modalText = document.getElementById("modal-text");
+  const closeBtn = document.querySelector(".close");
+  const modalBg = document.querySelector(".modal-bg");
 
+  items.forEach((img) => {
+    img.addEventListener("click", () => {
+      modal.classList.add("show");
+      modalImg.src = img.dataset.detail;
+      modalText.innerText = img.nextElementSibling.innerText;
+    });
+  });
 
-function setupMarquee(selector, speed, direction) {
-  const marquee = document.querySelector(selector);
-  const track = marquee.querySelector(".track");
+  function closeModal() {
+    modal.classList.remove("show");
+    modalImg.src = "";
+  }
 
-  // 🔥 핵심: 복제해서 2세트 만들기
-  track.innerHTML += track.innerHTML;
+  closeBtn.addEventListener("click", closeModal);
+  modalBg.addEventListener("click", closeModal);
 
-  let position = 0;
-  const halfWidth = track.scrollWidth / 2;
+  // =====================
+  // MARQUEE
+  // =====================
+  function setupMarquee(selector, speed, direction) {
+    const marquee = document.querySelector(selector);
+    const track = marquee.querySelector(".track");
 
-  function animate() {
-    position += speed * direction;
+    const original = track.innerHTML;
+    track.innerHTML = original + original;
 
-    // 🔥 절반 지나면 리셋 (끊김 없음 핵심)
-    if (Math.abs(position) >= halfWidth) {
-      position = 0;
+    let position = 0;
+    const halfWidth = track.scrollWidth / 2;
+
+    function animate() {
+      position += speed * direction;
+
+      if (Math.abs(position) >= halfWidth) {
+        position = position % halfWidth;
+      }
+
+      track.style.transform = `translate3d(${position}px, 0, 0)`;
+      requestAnimationFrame(animate);
     }
 
-    track.style.transform = `translateX(${position}px)`;
-
-    requestAnimationFrame(animate);
+    animate();
   }
 
-  animate();
-}
-
-// 위: 왼쪽 흐름
-setupMarquee(".marquee.left", 0.5, -1);
-
-// 아래: 오른쪽 흐름
-setupMarquee(".marquee.right", 0.5, 1);
+  setupMarquee(".marquee.left", 1.0, -1);
+  setupMarquee(".marquee.right", 1.0, 1);
+});

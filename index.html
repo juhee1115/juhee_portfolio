@@ -4,13 +4,55 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Portfolio | 박주희</title>
-  <meta property="og:title" content="Juhee Portfolio" />
-<meta property="og:description" content="UX/UI Designer Portfolio" />
-<meta property="og:image" content="https://portfoilo-fawn-eight.vercel.app/image/kakao.png" />
-<meta property="og:type" content="website" />
-<meta name="twitter:card" content="summary_large_image" />
 
-<link rel="stylesheet" href="css/main.css" />
+    
+    <!-- seo엔진 최적화 -->
+
+    <!-- seo 엔진 최적화 -->
+    <!-- 웹페이지의 설명을 정의 -->
+    <meta name="description" content="Portfolio | 박주희" />
+    <!-- 웹페이지와 관련된 키워드를 정의 -->
+    <meta name="keywords" content="박주희포트폴리오" />
+    <!-- 웹페이지의 저자를 정의  -->
+    <meta name="author" content="박주희포트폴리오" />
+    <!-- 소셜 미디어에서 페이지가 공유될때 사용되는 제목 -->
+    <meta property="og:title" content="박주희포트폴리오" />
+    <!-- 소셜 미디어에서 페이지가 공유될 때 표시되는 사이트 이름 -->
+    <meta property="og:site_name" content="박주희포트폴리오" />
+    <!-- 소셜 미디어에서 페이지가 웹사이트임을 명시 -->
+    <meta property="og:type" content="website" />
+    <!-- Open Graph 프로토콜에서 사용되는 메타 태그의 속성 중 하나로, 
+     페이지의 간략한 설명을 제공하는 데 사용 -->
+    <!-- 소셜 미디어에서 공유될 때 사용되는 URL -->
+    <meta
+      property="og:url"
+      content="https://juhee-portfolio-liard.vercel.app/"
+    />
+    <!-- 소셜 미디어에서 페이지가 공유될 때 표시되는 이미지 -->
+    <meta
+      property="og:image"
+      content="https://juhee-portfolio-liard.vercel.app/image/petlog.png"
+    />
+    <!-- 소셜 미디어에서 페이지가 공유될 때 사용되는 설명 -->
+    <meta property="og:description" content="박주희포트폴리오 입니다 ." />
+
+    <!-- favicon -->
+    <link
+      rel="icon"
+      type="image/png"
+      href="favicon/favicon-96x96.png"
+      sizes="96x96"
+    />
+    <link rel="icon" type="image/svg+xml" href="favicon/favicon.svg" />
+    <link rel="shortcut icon" href="favicon/favicon.ico" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="favicon/apple-touch-icon.png"
+    />
+    <link rel="manifest" href="favicon/site.webmanifest" />
+    <!-- css -->
+    <link rel="stylesheet" href="css/main.css" />
 
     <!-- Font Awesome -->
     <link
@@ -20,355 +62,349 @@
   </head>
 
   <body>
-    <div class="wrap">
-      <!-- ================= 첫 화면 ================= -->
+    <!-- ================= 첫 화면 ================= -->
+    <section class="intro">
+      <div class="card" id="card">
+        <div class="envelope"></div>
+        <p class="text">
+          HELLO, <br />THIS IS JUHEE'S PORTFOLIO <br />
+          OPEN IT!
+        </p>
+      </div>
 
-      <section class="intro">
-        <div class="card" id="card">
-          <div class="envelope"></div>
+      <div class="tag">✦ UX/UI DESIGN ✦ PORTFOLIO ✦</div>
+    </section>
 
-          <div class="text">
-            HEY THERE ! <br />
+    <nav class="gnb">
+      <ul>
+        <li><a href="#about">ABOUT</a></li>
+        <li><a href="#uxui">UX/UI</a></li>
+        <li><a href="#publishing">PUBLISHING</a></li>
+        <li><a href="#design">DESIGN</a></li>
+      </ul>
+    </nav>
 
-            A LETTER FROM <span>JUHEE</span><br />
+    <div id="mainPage">
+      <section class="about" id="about">
+        <div class="photo">
+          <h2>About Me</h2>
+          <!-- <img src="image/juhee.jpg" alt="프로필" /> -->
+        </div>
 
-            WOULD YOU LIKE TO OPEN IT?
+        <div class="about-right">
+          <div class="info">
+            <h2>INFORMATION</h2>
+
+            <div class="row">
+              <span>MBTI</span>
+              <p>ISFP</p>
+            </div>
+
+            <div class="row">
+              <span>BIRTHDAY</span>
+              <p>2000.11.15 <small>(27세)</small></p>
+            </div>
+
+            <div class="row">
+              <span>PHONE</span>
+              <p>010-7767-2533</p>
+            </div>
+
+            <div class="row">
+              <span>E-MAIL</span>
+              <p>yelow1115@gmail.com</p>
+            </div>
           </div>
+          <div class="about-bottom">
+            <div class="skill">
+              <h2>SKILL</h2>
 
-          <div class="tag">✦ UX/UI DESIGN ✦ PROTOTYPING ✦</div>
+              <div class="icons">
+                <img src="image/skill/css.png" />
+                <img src="image/skill/html.png" />
+                <img src="image/skill/Union.png" />
+                <img src="image/skill/일러스트.png" />
+                <img src="image/skill/피그마.png" />
+              </div>
+            </div>
+
+            <div class="experience">
+              <h2>EXPERIENCE</h2>
+
+              <div class="career">
+                <strong>UX/UI 디자인 디자이너 (그린컴퓨터)</strong>
+                <p>2026.02 - 2026.07</p>
+              </div>
+
+              <div class="career">
+                <strong>어학연수 (뉴질랜드)</strong>
+                <p>2024.01 - 2025.10</p>
+              </div>
+
+              <div class="career">
+                <strong>효성청과 기획총무부</strong>
+                <p>2019.01 - 2022.05</p>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
-      <nav class="gnb">
-        <ul>
-          <li><a href="#about">ABOUT</a></li>
-          <li><a href="#uxui">UX/UI</a></li>
-          <li><a href="#publishing">PUBLISHING</a></li>
-          <li><a href="#design">DESIGN</a></li>
-        </ul>
-      </nav>
+      <!-- ================= UX/UI ================= -->
+      <section class="portfolio" id="uxui">
+        <h2>UX / UI</h2>
 
-      <div id="mainPage">
-        <section class="about" id="about">
-          <div class="photo">
-            <h2>About Me</h2>
-          </div>
+        <div class="grid">
+          <!-- 카드 1 -->
+          <article class="project">
+            <a
+              href="https://loud-baryonyx-a08.notion.site/PET-LOG-f30b78fdd5b2830f9e1081e38cddc2ee?source=copy_link"
+              ><img src="image/petlog.png" alt="펫로그"
+            /></a>
 
-          <div class="about-right">
-            <div class="info">
-              <h2>INFORMATION</h2>
-
-              <div class="row">
-                <span>MBTI</span>
-                <p>ISFP</p>
-              </div>
-
-              <div class="row">
-                <span>BIRTHDAY</span>
-                <p>2000.11.15 <small>(27세)</small></p>
-              </div>
-
-              <div class="row">
-                <span>PHONE</span>
-                <p>010-7767-2533</p>
-              </div>
-
-              <div class="row">
-                <span>E-MAIL</span>
-                <p>yelow1115@gmail.com</p>
+            <div class="content">
+              <h3>PET LOG</h3>
+              <p>개인프로젝트</p>
+              <p>APP DESIGN</p>
+              <p>FIGMA</p>
+              <div class="btns">
+                <a
+                  href="https://www.figma.com/design/Mh7VcPwM3032pB9ZgNDqqz/pet-log?t=NpKYrcqb9y5kb3l1-0"
+                  >FIGMA</a
+                >
               </div>
             </div>
-            <div class="about-bottom">
-              <div class="skill">
-                <h2>SKILL</h2>
+          </article>
 
-                <div class="icons">
-                  <img src="image/skill/css.png" />
-                  <img src="image/skill/html.png" />
-                  <img src="image/skill/Union.png" />
-                  <img src="image/skill/일러스트.png" />
-                  <img src="image/skill/피그마.png" />
-                </div>
-              </div>
+          <!-- 카드 2 -->
+          <article class="project">
+            <a
+              href="https://loud-baryonyx-a08.notion.site/b66b78fdd5b283399a340107ed88681b?source=copy_link"
+              ><img src="image/kakao.png" alt="카카오골프"
+            /></a>
 
-              <div class="experience">
-                <h2>EXPERIENCE</h2>
+            <div class="content">
+              <h3>카카오골프</h3>
+              <p>개인프로젝트</p>
+              <p>리디자인 | 퍼블리싱</p>
+              <p>HTML / CSS / JS</p>
 
-                <div class="career">
-                  <strong>UX/UI 디자인 디자이너 (그린컴퓨터)</strong>
-                  <p>2026.02 - 2026.07</p>
-                </div>
-
-                <div class="career">
-                  <strong>어학연수 (뉴질랜드)</strong>
-                  <p>2024.01 - 2025.10</p>
-                </div>
-
-                <div class="career">
-                  <strong>효성청과 기획총무부</strong>
-                  <p>2019.01 - 2022.05</p>
-                </div>
+              <div class="btns">
+                <a
+                  href="https://www.figma.com/design/rUxqDxvgpc0aOZBr24PTzu/%EC%B9%B4%EC%B9%B4%EC%98%A4%EA%B3%A8%ED%94%84?t=NpKYrcqb9y5kb3l1-0"
+                  >FIGMA</a
+                >
+                <a href="https://kakao-golf.vercel.app/">CODING</a>
               </div>
             </div>
-          </div>
-        </section>
+          </article>
 
-        <!-- ================= UX/UI ================= -->
-        <section class="portfolio" id="uxui">
-          <h2>UX/UI</h2>
+          <!-- 카드 3 -->
+          <article class="project">
+            <a
+              href="https://loud-baryonyx-a08.notion.site/ADOBE-514b78fdd5b28319b515810efef8c9aa?source=copy_link"
+              ><img src="image/adobe.png" alt="adobe"
+            /></a>
 
-          <div class="grid">
-            <!-- 카드 1 -->
-            <article class="project">
-              <a
-                href="https://loud-baryonyx-a08.notion.site/PET-LOG-f30b78fdd5b2830f9e1081e38cddc2ee?source=copy_link"
-                ><img src="image/petlog.png" alt="펫로그"
-              /></a>
+            <div class="content">
+              <h3>ADOBE</h3>
+              <p>팀프로젝트(60%)</p>
+              <p>리디자인 | 퍼블리싱</p>
+              <p>HTML / CSS / JS</p>
 
-              <div class="content">
-                <h3>PET LOG</h3>
-                <p>개인프로젝트</p>
-                <p>APP DESIGN</p>
-                <p>FIGMA</p>
-                <div class="btns">
-                  <a
-                    href="https://www.figma.com/design/Mh7VcPwM3032pB9ZgNDqqz/pet-log?t=NpKYrcqb9y5kb3l1-0"
-                    >FIGMA</a
-                  >
-                </div>
+              <div class="btns">
+                <a
+                  href="https://www.figma.com/design/qkaSItXjG1fE6qCZmyMski/3%EC%A1%B0--%EB%B0%95%EC%A3%BC%ED%9D%AC--%EC%9C%A4%EC%84%B8%EC%98%81--%EC%A1%B0%ED%98%84%EC%A0%95-?t=NpKYrcqb9y5kb3l1-0"
+                  >FIGMA</a
+                >
+                <a href="https://adobe-re.vercel.app/#">CODING</a>
               </div>
-            </article>
+            </div>
+          </article>
 
-            <!-- 카드 2 -->
-            <article class="project">
-              <a
-                href="https://loud-baryonyx-a08.notion.site/b66b78fdd5b283399a340107ed88681b?source=copy_link"
-                ><img src="image/kakao.png" alt="카카오골프"
-              /></a>
+          <!-- 카드 4 -->
+          <article class="project">
+            <a
+              href="https://app.notion.com/p/37ab78fdd5b2804b9f0fc01fcfa4d8aa?source=copy_link"
+              ><img src="image/onel.png" alt="오늘수거"
+            /></a>
 
-              <div class="content">
-                <h3>카카오골프</h3>
-                <p>개인프로젝트</p>
-                <p>리디자인 | 퍼블리싱</p>
-                <p>HTML / CSS / JS</p>
-
-                <div class="btns">
-                  <a
-                    href="https://www.figma.com/design/rUxqDxvgpc0aOZBr24PTzu/%EC%B9%B4%EC%B9%B4%EC%98%A4%EA%B3%A8%ED%94%84?t=NpKYrcqb9y5kb3l1-0"
-                    >FIGMA</a
-                  >
-                  <a href="https://kakao-golf.vercel.app/">CODING</a>
-                </div>
+            <div class="content">
+              <h3>오늘수거</h3>
+              <p>개인프로젝트</p>
+              <p>랜딩페이지제작 | 퍼블리싱</p>
+              <p>HTML / CSS / JS</p>
+              <div class="btns">
+                <a
+                  href="https://www.figma.com/design/pTr4XqH5zbZci0FytqtqUg/%EC%98%A4%EB%8A%98%EC%88%98%EA%B1%B0---%EB%9E%9C%EB%94%A9%ED%8E%98%EC%9D%B4%EC%A7%80--%EB%B0%95%EC%A3%BC%ED%9D%AC-?t=flXmY201pTKrL6eR-0"
+                  >FIGMA</a
+                >
+                <a href="https://onelsugeo.vercel.app/">CODING</a>
               </div>
-            </article>
+            </div>
+          </article>
+        </div>
+      </section>
 
-            <!-- 카드 3 -->
-            <article class="project">
-              <a
-                href="https://loud-baryonyx-a08.notion.site/ADOBE-514b78fdd5b28319b515810efef8c9aa?source=copy_link"
-                ><img src="image/adobe.png" alt="adobe"
-              /></a>
+      <!-- ================= Publishing ================= -->
+      <section class="portfolio" id="publishing">
+        <h2>PUBLISHING</h2>
 
-              <div class="content">
-                <h3>ADOBE</h3>
-                <p>팀프로젝트(60%)</p>
-                <p>리디자인 | 퍼블리싱</p>
-                <p>HTML / CSS / JS</p>
+        <div class="grid">
+          <article class="project">
+            <a
+              href="https://app.notion.com/p/STX-36eb78fdd5b2809ea30dd91354f4f18c?source=copy_link"
+              ><img src="image/stx.png" alt="stx"
+            /></a>
 
-                <div class="btns">
-                  <a
-                    href="https://www.figma.com/design/qkaSItXjG1fE6qCZmyMski/3%EC%A1%B0--%EB%B0%95%EC%A3%BC%ED%9D%AC--%EC%9C%A4%EC%84%B8%EC%98%81--%EC%A1%B0%ED%98%84%EC%A0%95-?t=NpKYrcqb9y5kb3l1-0"
-                    >FIGMA</a
-                  >
-                  <a href="https://adobe-re.vercel.app/#">CODING</a>
-                </div>
+            <div class="content">
+              <h3>STX 건설</h3>
+              <p>개인프로젝트</p>
+              <p>CLONE 코딩</p>
+              <p>HTML / CSS / JS</p>
+
+              <div class="btns">
+                <a href="https://stxcloneconing.vercel.app/">SITE</a>
               </div>
-            </article>
+            </div>
+          </article>
 
-            <!-- 카드 4 -->
-            <article class="project">
-              <a
-                href="https://app.notion.com/p/37ab78fdd5b2804b9f0fc01fcfa4d8aa?source=copy_link"
-                ><img src="image/onel.png" alt="오늘수거"
-              /></a>
+          <article class="project">
+            <a
+              href="https://loud-baryonyx-a08.notion.site/STX-36eb78fdd5b2809ea30dd91354f4f18c?source=copy_link"
+            >
+              <img src="image/exhibit.png" alt="국립현대미술관"
+            /></a>
 
-              <div class="content">
-                <h3>오늘수거</h3>
-                <p>개인프로젝트</p>
-                <p>랜딩페이지제작 | 퍼블리싱</p>
-                <p>HTML / CSS / JS</p>
-                <div class="btns">
-                  <a
-                    href="https://www.figma.com/design/pTr4XqH5zbZci0FytqtqUg/%EC%98%A4%EB%8A%98%EC%88%98%EA%B1%B0---%EB%9E%9C%EB%94%A9%ED%8E%98%EC%9D%B4%EC%A7%80--%EB%B0%95%EC%A3%BC%ED%9D%AC-?t=flXmY201pTKrL6eR-0"
-                    >FIGMA</a
-                  >
-                  <a href="https://onelsugeo.vercel.app/">CODING</a>
-                </div>
+            <div class="content">
+              <h3>국립현대미술관</h3>
+              <p>개인프로젝트</p>
+              <p>CLONE 코딩</p>
+              <p>HTML / CSS / JS</p>
+              <div class="btns">
+                <a href="https://clone-artgallery.vercel.app/">SITE</a>
               </div>
-            </article>
-          </div>
-        </section>
+            </div>
+          </article>
 
-        <!-- ================= Publishing ================= -->
-        <section class="portfolio" id="publishing">
-          <h2>PUBLISHING</h2>
+          <article class="project">
+            <a
+              href="https://loud-baryonyx-a08.notion.site/36fb78fdd5b280688480ee1d2a7028f5?source=copy_link"
+            >
+              <img src="image/esim.png" alt="이심"
+            /></a>
 
-          <div class="grid">
-            <article class="project">
-              <a
-                href="https://app.notion.com/p/STX-36eb78fdd5b2809ea30dd91354f4f18c?source=copy_link"
-                ><img src="image/stx.png" alt="stx"
-              /></a>
+            <div class="content">
+              <h3>E-SIM 도시락</h3>
+              <p>개인프로젝트</p>
+              <p>CLONE 코딩</p>
+              <p>HTML / CSS / JS</p>
 
-              <div class="content">
-                <h3>STX 건설</h3>
-                <p>개인프로젝트</p>
-                <p>CLONE 코딩</p>
-                <p>HTML / CSS / JS</p>
-
-                <div class="btns">
-                  <a href="https://stxcloneconing.vercel.app/">CODING</a>
-                </div>
+              <div class="btns">
+                <a href="https://clone-esim.vercel.app/">SITE</a>
               </div>
-            </article>
+            </div>
+          </article>
+        </div>
+      </section>
+      <!-- ================= DESIGN 섹션 ================= -->
+      <section class="portfolio" id="design">
+        <h2>DESIGN</h2>
 
-            <article class="project">
-              <a
-                href="https://loud-baryonyx-a08.notion.site/STX-36eb78fdd5b2809ea30dd91354f4f18c?source=copy_link"
-              >
-                <img src="image/exhibit.png" alt="국립현대미술관"
-              /></a>
+        <div class="grid design-grid">
+          <!-- 카드 1 -->
+          <article class="design-item">
+            <img
+              src="image/banner1.png"
+              alt="젠틀몬스터 배너"
+              data-detail="image/design-banner.png"
+            />
+            <p>젠틀몬스터 [배너]</p>
+          </article>
 
-              <div class="content">
-                <h3>국립현대미술관</h3>
-                <p>개인프로젝트</p>
-                <p>CLONE 코딩</p>
-                <p>HTML / CSS / JS</p>
-                <div class="btns">
-                  <a href="https://clone-artgallery.vercel.app/">CODING</a>
-                </div>
-              </div>
-            </article>
+          <!-- 카드 2 -->
+          <article class="design-item">
+            <img
+              src="image/banner-2.png"
+              alt="젠틀몬스터 상세페이지"
+              data-detail="image/design-detialpage.jpg"
+            />
+            <p>젠틀몬스터 [상세페이지]</p>
+          </article>
 
-            <article class="project">
-              <a
-                href="https://loud-baryonyx-a08.notion.site/36fb78fdd5b280688480ee1d2a7028f5?source=copy_link"
-              >
-                <img src="image/esim.png" alt="이심"
-              /></a>
+          <!-- 카드 3 -->
+          <article class="design-item">
+            <img
+              src="image/banner3.png"
+              alt="ROUTE 로고제작"
+              data-detail="image/design-logo.jpg"
+            />
+            <p>ROUTE [로고제작]</p>
+          </article>
 
-              <div class="content">
-                <h3>E-SIM 도시락</h3>
-                <p>개인프로젝트</p>
-                <p>CLONE 코딩</p>
-                <p>HTML / CSS / JS</p>
+          <!-- 카드 4 -->
+          <article class="design-item">
+            <img
+              src="image/banner4.png"
+              alt="누룽지팝 SNS카드뉴스"
+              data-detail="image/design-pop.jpg"
+            />
+            <p>누룽지팝 [SNS카드뉴스]</p>
+          </article>
+        </div>
+      </section>
+      <!-- MODAL -->
+      <div class="modal" id="modal">
+        <div class="modal-bg"></div>
 
-                <div class="btns">
-                  <a href="https://clone-esim.vercel.app/">CODING</a>
-                </div>
-              </div>
-            </article>
-          </div>
-        </section>
-        <!-- ================= DESIGN 섹션 ================= -->
-        <section class="portfolio" id="design">
-          <h2>DESIGN</h2>
+        <div class="modal-content">
+          <img src="" alt="detail image" id="modal-img" />
+          <p id="modal-text"></p>
 
-          <div class="grid design-grid">
-            <!-- 카드 1 -->
-            <article class="design-item">
-              <img
-                src="image/banner1.png"
-                alt="젠틀몬스터 배너"
-                data-detail="image/design-banner.png"
-              />
-              <p>젠틀몬스터 [배너]</p>
-            </article>
+          <button class="close">✕</button>
+        </div>
+      </div>
 
-            <!-- 카드 2 -->
-            <article class="design-item">
-              <img
-                src="image/banner-2.png"
-                alt="젠틀몬스터 상세페이지"
-                data-detail="image/design-detialpage.jpg"
-              />
-              <p>젠틀몬스터 [상세페이지]</p>
-            </article>
-
-            <!-- 카드 3 -->
-            <article class="design-item">
-              <img
-                src="image/banner3.png"
-                alt="ROUTE 로고제작"
-                data-detail="image/design-logo.jpg"
-              />
-              <p>ROUTE [로고제작]</p>
-            </article>
-
-            <!-- 카드 4 -->
-            <article class="design-item">
-              <img
-                src="image/banner4.png"
-                alt="누룽지팝 SNS카드뉴스"
-                data-detail="image/design-pop.jpg"
-              />
-              <p>누룽지팝 [SNS카드뉴스]</p>
-            </article>
-          </div>
-        </section>
-        <!-- MODAL -->
-        <div class="modal" id="modal">
-          <div class="modal-bg"></div>
-
-          <div class="modal-content">
-            <img src="" alt="detail image" id="modal-img" />
-            <p id="modal-text"></p>
-
-            <button class="close">✕</button>
+      <!-- ================= 기술 스택 태그 ================= -->
+      <section class="stack">
+        <div class="marquee left">
+          <div class="track">
+            <span>HTML</span>
+            <span>CSS</span>
+            <span>JavaScript</span>
+            <span>Figma</span>
+            <span>Illustrator</span>
           </div>
         </div>
 
-        <!-- ================= 기술 스택 태그 ================= -->
-        <section class="stack">
-          <div class="marquee left">
-            <div class="track">
-              <span>HTML</span>
-              <span>CSS</span>
-              <span>JavaScript</span>
-              <span>Figma</span>
-              <span>Illustrator</span>
-            </div>
+        <div class="marquee right">
+          <div class="track">
+            <span>UI/UX</span>
+            <span>Responsive</span>
+            <span>Git</span>
+            <span>Photoshop</span>
+            <span>Prototype</span>
+          </div>
+        </div>
+      </section>
+      <!-- ================= Footer ================= -->
+      <footer class="footer">
+        <h2>THANK YOU FOR YOUR TIME !</h2>
+
+        <div class="footer-info">
+          <div class="contact">
+            <h3>CONTACT</h3>
+            <p><span>E-MAIL</span> yelow1115@gmail.com</p>
+            <p><span>PHONE</span> 010-7767-2533</p>
           </div>
 
-          <div class="marquee right">
-            <div class="track">
-              <span>UI/UX</span>
-              <span>Responsive</span>
-              <span>Git</span>
-              <span>Photoshop</span>
-              <span>Prototype</span>
-            </div>
+          <div class="links">
+            <a href=""><p>Figma</p></a>
+            <a href=""><p>Github</p></a>
+            <a href=""><p>Notion</p></a>
           </div>
-        </section>
-        <!-- ================= Footer ================= -->
-        <footer class="footer">
-          <h2>THANK YOU FOR YOUR TIME !</h2>
-
-          <div class="footer-info">
-            <div class="contact">
-              <h3>CONTACT</h3>
-              <p><span>E-MAIL</span> yelow1115@gmail.com</p>
-              <p><span>PHONE</span> 010-7767-2533</p>
-            </div>
-
-            <div class="links">
-              <p>Figma</p>
-              <p>Github</p>
-              <p>Notion</p>
-            </div>
-          </div>
-        </footer>
-      </div>
+        </div>
+      </footer>
     </div>
 
     <script src="js/main.js"></script>
