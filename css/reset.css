@@ -1,0 +1,44 @@
+@font-face {
+  font-family: "Escoredream";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-5Medium.woff")
+    format("woff");
+  font-weight: 500;
+  font-display: swap;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
+ul,
+li {
+  list-style: none;
+  color: white;
+}
+
+body {
+  background-color: black;
+  color: white;
+  font-family: "Escoredream";
+  width: 100%;
+  min-height: 100vh;
+  display: block;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.wrap {
+  display: block;
+  width: 100%;
+}
+
+html {
+  scroll-behavior: smooth;
+}
