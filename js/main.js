@@ -1,5 +1,4 @@
 document.addEventListener("DOMContentLoaded", () => {
-
   // =====================
   // ELEMENTS
   // =====================
@@ -17,7 +16,9 @@ document.addEventListener("DOMContentLoaded", () => {
   // =====================
   // INTRO TYPE
   // =====================
-  const text = "HELLO, THIS IS JUHEE'S PORTFOLIO OPEN IT!";
+  const text = `안녕하세요.
+사용자의 경험을 디자인하는
+UX/UI 디자이너 박주희입니다.`;
   let i = 0;
 
   textEl.innerHTML = "";
@@ -68,7 +69,7 @@ document.addEventListener("DOMContentLoaded", () => {
     navLinks.forEach((link) => {
       link.classList.toggle(
         "active",
-        link.getAttribute("href") === `#${current}`
+        link.getAttribute("href") === `#${current}`,
       );
     });
   }
@@ -79,8 +80,7 @@ document.addEventListener("DOMContentLoaded", () => {
   function toggleNav() {
     if (!intro) return;
 
-    const introBottom =
-      intro.getBoundingClientRect().bottom + window.scrollY;
+    const introBottom = intro.getBoundingClientRect().bottom + window.scrollY;
 
     nav.classList.toggle("show", window.scrollY > introBottom - 100);
   }
@@ -118,34 +118,4 @@ document.addEventListener("DOMContentLoaded", () => {
 
   closeBtn.addEventListener("click", closeModal);
   modalBg.addEventListener("click", closeModal);
-
-  // =====================
-  // MARQUEE
-  // =====================
-  function setupMarquee(selector, speed, direction) {
-    const marquee = document.querySelector(selector);
-    const track = marquee.querySelector(".track");
-
-    const original = track.innerHTML;
-    track.innerHTML = original + original;
-
-    let position = 0;
-    const halfWidth = track.scrollWidth / 2;
-
-    function animate() {
-      position += speed * direction;
-
-      if (Math.abs(position) >= halfWidth) {
-        position = position % halfWidth;
-      }
-
-      track.style.transform = `translate3d(${position}px, 0, 0)`;
-      requestAnimationFrame(animate);
-    }
-
-    animate();
-  }
-
-  setupMarquee(".marquee.left", 1.0, -1);
-  setupMarquee(".marquee.right", 1.0, 1);
 });

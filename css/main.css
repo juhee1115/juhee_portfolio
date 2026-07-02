@@ -1,62 +1,79 @@
 @import url("reset.css");
 
-/* =========================
+/* =========================================
    INTRO
-========================= */
+========================================= */
 
 .intro {
   width: 100%;
   height: 100vh;
+  position: relative;
+  overflow: hidden;
   display: flex;
   justify-content: center;
   align-items: center;
-  position: relative;
-  overflow: hidden;
 }
 
 .intro::before {
   content: "";
   position: absolute;
+  top: -180px;
+  left: -180px;
   width: 600px;
   height: 600px;
   background: var(--blue);
   border-radius: 50%;
   filter: blur(180px);
   opacity: 0.18;
-  top: -180px;
-  left: -180px;
 }
 
 .intro::after {
   content: "";
   position: absolute;
+  bottom: -150px;
+  right: -150px;
   width: 500px;
   height: 500px;
   background: var(--orange);
   border-radius: 50%;
   filter: blur(180px);
   opacity: 0.16;
-  bottom: -150px;
-  right: -150px;
 }
 
-/* =========================
-   CARD
-========================= */
+/* Card */
 
 .card {
+  position: relative;
   width: 1000px;
   height: 650px;
-  position: relative;
   overflow: hidden;
-  border-radius: 24px;
-  background: linear-gradient(145deg, #7aa2ff, #4c6fff);
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
-  transition: 0.8s;
+  border-radius: 24px;
+  background: linear-gradient(145deg, #7aa2ff, #4c6fff);
   box-shadow: 0 35px 70px rgba(0, 0, 0, 0.45);
+  transition: 0.8s;
+  animation: floating 5s ease-in-out infinite;
+}
+
+@keyframes floating {
+  0% {
+    transform: translateY(0) rotate(0deg);
+  }
+  25% {
+    transform: translateY(-6px) rotate(-0.5deg);
+  }
+  50% {
+    transform: translateY(-12px) rotate(0deg);
+  }
+  75% {
+    transform: translateY(-6px) rotate(0.5deg);
+  }
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
 }
 
 .card:hover {
@@ -65,11 +82,10 @@
 
 .card.open {
   transform: translateY(-20px) scale(1.03);
+  animation: none;
 }
 
-/* =========================
-   ENVELOPE
-========================= */
+/* Envelope */
 
 .envelope {
   position: absolute;
@@ -99,19 +115,17 @@
   opacity: 0;
 }
 
-/* =========================
-   TEXT
-========================= */
+/* Text */
 
 .text {
   position: relative;
   z-index: 10;
-  text-align: center;
-  font-size: 25px;
+  margin-bottom: 280px;
+  font-size: 30px;
   color: #000000;
-  margin-bottom: 220px;
-  transition: 0.6s;
+  text-align: center;
   white-space: pre-wrap;
+  transition: 0.6s;
 }
 
 .card.open .text {
@@ -119,28 +133,49 @@
   transform: translateY(-25px);
 }
 
-/* =========================
-   TAG
-========================= */
+/* Tag */
 
 .tag {
   position: absolute;
+  top: 50%;
   left: 50%;
-  bottom: 400px;
-  transform: translateX(-50%) rotate(-4deg);
-  width: 530px;
+  z-index: 20;
+  width: 330px;
   padding: 25px 5px;
+  overflow: hidden;
   background: #111;
   color: #fff;
   text-align: center;
-  font-size: 24px;
+  font-size: 27px;
   cursor: pointer;
+  transform: translate(-50%, -50%) rotate(-4deg);
   transition: 0.4s;
-  z-index: 20;
+}
+
+.tag::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -120%;
+  width: 40%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.35),
+    transparent
+  );
+  transform: skewX(-20deg);
 }
 
 .tag:hover {
-  transform: translateX(-50%) rotate(-2deg) scale(1.04);
+  transform: translate(-50%, -50%) rotate(-2deg) translateY(-4px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+}
+
+.tag:hover::before {
+  left: 140%;
+  transition: 0.8s ease;
 }
 
 .card.open .tag {
@@ -148,19 +183,182 @@
   transform: translateX(-50%) scale(0.8);
 }
 
-/* =========================
-   INFORMATION
-========================= */
+/* =========================================
+   GNB (고정 네비게이션)
+========================================= */
 
-.info {
-  width: 1100px;
-  margin-top: 180px;
-  margin-bottom: 50px;
+.gnb {
+  position: fixed;
+  top: 0px;
+  left: 50%;
+  z-index: 9999;
+  width: 100%;
+  height: 80px;
+  padding: 0px 150px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.85);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.164);
+  backdrop-filter: blur(10px);
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.4s ease;
 }
 
+.gnb.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+.gnb ul {
+  display: flex;
+  gap: 40px;
+  list-style: none;
+}
+
+.gnb a {
+  color: #414141;
+  font-size: 28px;
+  letter-spacing: 2px;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.gnb a.active {
+  color: #7e91ff;
+}
+
+.gnb a:hover {
+  opacity: 0.7;
+}
+
+/* =========================================
+   ABOUT
+========================================= */
+
+.about {
+  position: relative;
+  z-index: 0;
+  width: min(1400px, 90%);
+  margin: 180px auto;
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: 100px;
+  align-items: stretch;
+}
+
+.about::before {
+  content: "";
+  position: absolute;
+  top: 130px;
+  left: -80px;
+  z-index: -1;
+  width: 300px;
+  height: 300px;
+  background: #ff7a30;
+  filter: blur(140px);
+  opacity: 0.35;
+}
+
+.photo {
+  width: 100%;
+  position: sticky;
+  top: 140px;
+}
+
+.photo h2 {
+  position: relative;
+  padding-top: 100px;
+  margin-bottom: 30px;
+  font-size: 48px;
+}
+
+.photo h2::after {
+  content: "";
+  display: block;
+  width: 90px;
+  height: 2px;
+  margin-top: 10px;
+  background: #888;
+}
+
+.photo img {
+  width: 100%;
+  max-width: 280px;
+  border-radius: 22px;
+}
+
+.photo-meta {
+  margin-top: 22px;
+}
+
+.photo-meta strong {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 26px;
+  font-weight: 700;
+}
+
+.photo-meta span {
+  font-size: 16px;
+  letter-spacing: 1px;
+  color: var(--gray);
+}
+
+.about-right {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 60px;
+  transform: translateY(130px);
+}
+
+.about-right h2 {
+  margin-bottom: 20px;
+  font-size: 26px;
+}
+
+.about-bottom {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: start;
+}
+
+.skill,
+.experience {
+  padding: 32px 36px;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 18px;
+  background: linear-gradient(
+    160deg,
+    rgba(255, 255, 255, 0.045),
+    rgba(255, 255, 255, 0.01)
+  );
+}
+
+/* Information rows (About > .info) */
+
+.info {
+  width: 100%;
+  padding: 40px 45px;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 18px;
+  background: linear-gradient(
+    160deg,
+    rgba(255, 255, 255, 0.045),
+    rgba(255, 255, 255, 0.01)
+  );
+}
+
+/* 더 구체적인 선택자로 .about-right h2 보다 우선 적용되도록 지정 */
 .info h2 {
-  font-size: 40px;
-  margin-bottom: 100px;
+  margin-bottom: 30px;
+  font-size: 32px;
 }
 
 .info .row {
@@ -173,15 +371,15 @@
 
 .info .row span {
   width: 100px;
-  font-size: 15px;
+  font-size: 16px;
   font-weight: 600;
-  color: var(--gray);
   letter-spacing: 2px;
+  color: var(--gray);
 }
 
 .info .row p {
   flex: 1;
-  font-size: 22px;
+  font-size: 24px;
   font-weight: 500;
 }
 
@@ -193,205 +391,7 @@
   color: var(--orange);
 }
 
-/* ==========================
-   프로필
-========================== */
-
-.profile {
-  width: 1400px;
-  margin: 120px auto 80px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-
-  padding: 45px 60px;
-
-  border-radius: 18px;
-
-  background: linear-gradient(180deg, #6f6f6f, #2a2a2a 35%, #181818);
-
-  border: 1px solid rgba(255, 255, 255, 0.15);
-}
-
-.profile h1 {
-  font-size: 60px;
-  font-weight: 700;
-  margin-bottom: 20px;
-}
-
-.profile p {
-  line-height: 1.9;
-  color: #d0d0d0;
-}
-
-.profile .btn {
-  display: flex;
-  gap: 12px;
-  margin-top: 20px;
-}
-
-.profile .btn a {
-  color: #fff;
-  text-decoration: none;
-
-  padding: 8px 22px;
-
-  border-radius: 30px;
-
-  border: 1px solid rgba(255, 255, 255, 0.25);
-
-  background: rgba(255, 255, 255, 0.12);
-
-  transition: 0.3s;
-}
-
-.profile .btn a:hover {
-  background: white;
-  color: #111;
-}
-/* ==========================
-   GNB (고정 네비게이션)
-========================== */
-
-.gnb {
-  position: fixed;
-  top: 0px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 100%;
-  height: 80px;
-  padding: 0px 150px;
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  z-index: 9999;
-  opacity: 0;
-  visibility: hidden;
-  transition: 0.4s ease;
-  background: rgba(0, 0, 0, 0.85);
-  backdrop-filter: blur(10px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.164);
-}
-
-/* 스크롤 이후 나타남 */
-.gnb.show {
-  opacity: 1;
-  visibility: visible;
-}
-
-/* 메뉴 리스트 */
-.gnb ul {
-  display: flex;
-  gap: 40px;
-  list-style: none;
-}
-
-/* 링크 */
-.gnb a {
-  color: #414141;
-  font-size: 25px;
-  letter-spacing: 2px;
-  text-decoration: none;
-
-  transition: 0.3s;
-}
-
-/* active 상태 */
-.gnb a.active {
-  color: #7e91ff;
-}
-
-/* hover */
-.gnb a:hover {
-  opacity: 0.7;
-}
-
-/* ===========================
-    ABOUT
-=========================== */
-
-.about {
-  width: 1400px;
-  margin: 180px auto;
-  display: flex;
-  align-items: flex-start;
-  position: relative;
-}
-
-.about::before {
-  content: "";
-  position: absolute;
-  left: -80px;
-  top: 130px;
-  width: 300px;
-  height: 300px;
-  background: #ff7a30;
-  filter: blur(140px);
-  opacity: 0.35;
-}
-
-.photo {
-  width: 300px;
-}
-
-.photo h2 {
-  padding-top: 100px;
-  font-size: 40px;
-  margin-bottom: 30px;
-  position: relative;
-}
-
-.photo h2::after {
-  content: "";
-  width: 90px;
-  height: 2px;
-  background: #888;
-  display: block;
-  margin-top: 10px;
-}
-
-.photo img {
-  width: 220px;
-
-  border-radius: 22px;
-}
-
-.about-right {
-  width: 650px;
-  padding-left: 150px;
-  display: flex;
-  flex-direction: column;
-  gap: 40px;
-}
-
-.about-bottom {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 150px;
-  align-items: start;
-}
-.about-right h2 {
-  font-size: 30px;
-  margin-bottom: 25px;
-}
-
-.row {
-  display: flex;
-  margin-bottom: 12px;
-}
-
-.row span {
-  width: 120px;
-  font-size: 15px;
-  font-weight: 600;
-  font-style: italic;
-  color: #fff;
-}
-
-.row p {
-  color: #bdbdbd;
-  font-size: 15px;
-}
+/* Skill / Experience */
 
 .icons {
   display: flex;
@@ -409,74 +409,70 @@
 
 .experience strong {
   display: block;
-  font-size: 16px;
   margin-bottom: 6px;
+  font-size: 18px;
 }
 
 .experience p {
+  font-size: 15px;
   color: #999;
-  font-size: 14px;
 }
 
-/* ==========================
-   Portfolio
-========================== */
+/* =========================================
+   PORTFOLIO (UX/UI, PUBLISHING, DESIGN 공통)
+========================================= */
 
 .portfolio {
-  width: 1400px;
-  margin: 180px auto;
   position: relative;
   z-index: 0;
-}
-
-#uxui h2::after {
-  content: "";
-  width: 1px;
-  height: 2px;
-  background: #888;
-  display: block;
-  margin-top: 10px;
-}
-
-#publishing h2::after {
-  content: "";
-  width: 240px;
-  height: 2px;
-  background: #888;
-  display: block;
-  margin-top: 10px;
-}
-
-#design h2::after {
-  content: "";
-  width: 150px;
-  height: 2px;
-  background: #888;
-  display: block;
-  margin-top: 10px;
+  width: min(1400px, 90%);
+  margin: 180px auto;
 }
 
 .portfolio::before {
   content: "";
   position: absolute;
-
+  top: 20px;
+  left: -120px;
+  z-index: -1;
   width: 350px;
   height: 350px;
-
-  left: -120px;
-  top: 20px;
-
   background: #ff6a00;
   filter: blur(130px);
-
   opacity: 0.3;
-  z-index: -1;
 }
 
 .portfolio h2 {
   padding-top: 100px;
-  font-size: 40px;
   margin-bottom: 30px;
+  font-size: 52px;
+}
+
+#uxui h2::after {
+  content: "";
+  display: block;
+  width: 1px;
+  height: 2px;
+  margin-top: 10px;
+  background: #888;
+}
+
+#publishing h2::after {
+  content: "";
+  display: block;
+  width: 240px;
+  height: 2px;
+  margin-top: 10px;
+  background: #888;
+}
+
+#design h2::after {
+  content: "";
+  display: block;
+  width: 150px;
+  height: 2px;
+  margin-top: 10px;
+  background: #888;
 }
 
 .grid {
@@ -494,7 +490,6 @@
   width: 380px;
   height: 300px;
   border-radius: 18px;
-
   transition: 0.4s;
 }
 
@@ -509,13 +504,14 @@
 }
 
 .content h3 {
-  font-size: 28px;
   margin-bottom: 15px;
+  font-size: 32px;
 }
 
 .content p {
-  color: #bbb;
+  font-size: 16px;
   line-height: 1.8;
+  color: #bbb;
 }
 
 .btns {
@@ -525,18 +521,12 @@
 }
 
 .btns a {
-  text-decoration: none;
-
-  color: white;
-
-  border: 1px solid #fff;
-
-  border-radius: 40px;
-
   padding: 8px 22px;
-
-  font-size: 13px;
-
+  border: 1px solid #fff;
+  border-radius: 40px;
+  color: white;
+  font-size: 14px;
+  text-decoration: none;
   transition: 0.3s;
 }
 
@@ -545,15 +535,11 @@
   color: #111;
 }
 
-/* ==========================
-   DESIGN
-========================== */
+/* Design grid */
 
 .design-grid {
   display: grid;
-
   grid-template-columns: repeat(4, 1fr);
-
   gap: 25px;
 }
 
@@ -570,81 +556,42 @@
 
 .design-item p {
   margin-top: 18px;
+  font-size: 16px;
   text-align: center;
 }
 
-/* ==========================
-   FOOTER
-========================== */
-
-.footer {
-  width: 900px;
-
-  margin: 130px auto;
-
-  padding: 60px;
-
-  border-radius: 20px;
-
-  background: linear-gradient(180deg, #777, #222);
-
-  border: 1px solid rgba(255, 255, 255, 0.15);
-}
-
-.footer h2 {
-  text-align: center;
-
-  margin-bottom: 45px;
-
-  font-size: 40px;
-}
-
-.footer-info {
-  display: flex;
-
-  justify-content: space-between;
-}
-
-.footer h3 {
-  margin-bottom: 20px;
-}
-
-.footer p {
-  margin-bottom: 10px;
-  color: #d6d6d6;
-}
-
-.footer span {
-  color: white;
-  margin-right: 12px;
-}
+/* =========================================
+   MODAL
+========================================= */
 
 .modal {
   position: fixed;
   inset: 0;
+  z-index: 9999;
   display: none;
   justify-content: center;
   align-items: center;
-  z-index: 9999;
 }
 
-/* 배경 어둡게 */
+.modal.show {
+  display: flex;
+}
+
 .modal-bg {
   position: absolute;
   inset: 0;
   background: rgba(0, 0, 0, 0.75);
 }
 
-/* 내용 */
 .modal-content {
   position: relative;
   width: 900px;
   max-width: 95%;
-  max-height: 90vh; /* 중요 */
-  overflow-y: auto; /* 스크롤 핵심 */
-  background: #111;
+  max-height: 90vh;
+  overflow-y: auto;
   padding: 20px;
   border-radius: 16px;
+  background: #111;
 }
 
 .modal-content img {
@@ -652,7 +599,6 @@
   border-radius: 12px;
 }
 
-/* 닫기 버튼 */
 .close {
   position: absolute;
   top: 10px;
@@ -664,44 +610,460 @@
   cursor: pointer;
 }
 
-/* show 상태 */
-.modal.show {
-  display: flex;
-}
-
-/* 기술 태그 */
+/* =========================================
+   STACK (기술 태그 마퀴)
+========================================= */
 
 .stack {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
+  margin: 220px 0;
   overflow: hidden;
-  align-items: center;
 }
 
 .marquee {
   width: 100%;
   overflow: hidden;
-  display: flex;
-  justify-content: center; /* 👈 핵심 */
 }
 
 .track {
-  display: flex;
   width: max-content;
-  gap: 16px;
+  display: flex;
+  gap: 70px;
+  animation: marquee 28s linear infinite;
 }
 
 .track span {
-  padding: 10px 28px;
-  border-radius: 30px;
-  border: 1px solid rgba(255, 255, 255, 0.5);
+  font-size: 72px;
+  font-weight: 700;
+  color: #2c2c2c;
+  white-space: nowrap;
+  transition: 0.35s;
+}
+
+.track span:hover {
+  color: white;
+  transform: translateY(-6px);
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* =========================================
+   FOOTER
+========================================= */
+
+.footer {
+  width: min(1000px, 90%);
+  margin: 180px auto 80px;
+  padding: 0;
+  background: none;
+  border: none;
+}
+
+.footer h2 {
+  margin-bottom: 18px;
+  font-size: 84px;
+  font-weight: 700;
+}
+
+.footer-text {
+  margin-bottom: 80px;
+  font-size: 17px;
+  line-height: 1.8;
+  color: #8f8f8f;
+}
+
+.footer-contact {
+  display: flex;
+  gap: 120px;
+  margin-bottom: 60px;
+}
+
+.footer-contact span {
+  display: block;
+  margin-bottom: 12px;
+  font-size: 13px;
+  letter-spacing: 3px;
+  color: #666;
+}
+
+.footer-contact p {
+  font-size: 24px;
   color: white;
 }
 
-.intro.hide {
+.footer-line {
+  width: 100%;
+  height: 1px;
+  margin-bottom: 35px;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-links {
+  display: flex;
+  gap: 35px;
+}
+
+.footer-links a {
+  color: #9a9a9a;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.footer-links a:hover {
+  color: white;
+}
+
+.footer-bottom small {
+  color: #555;
+}
+
+/* =========================================
+   반응형 - Tablet (1200px 이하)
+========================================= */
+
+@media (max-width: 1200px) {
+  .about,
+  .portfolio {
+    width: 90%;
+  }
+
+  .info {
+    width: 100%;
+  }
+
+  .card {
+    width: 90%;
+    height: 580px;
+  }
+
+  .project {
+    flex-direction: column;
+  }
+
+  .project img {
+    width: 100%;
+    height: auto;
+  }
+
+  .content {
+    padding: 20px 0;
+  }
+
+  .footer {
+    width: 90%;
+  }
+
+  .gnb {
+    padding: 0 50px;
+  }
+}
+
+/* =========================================
+   반응형 - Tablet (992px 이하)
+========================================= */
+
+@media (max-width: 992px) {
+  .about {
+    grid-template-columns: 1fr;
+    gap: 60px;
+  }
+
+  .about-right {
+    width: 100%;
+  }
+
+  .about-bottom {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .photo {
+    position: static;
+    width: 100%;
+    text-align: center;
+  }
+
+  .photo img {
+    width: 260px;
+    max-width: 260px;
+  }
+
+  .photo-meta {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .design-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .footer-info {
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .info {
+    margin-top: 0;
+  }
+
+  .tag {
+    width: 420px;
+    font-size: 20px;
+  }
+
+  .card {
+    height: 500px;
+  }
+
+  .text {
+    font-size: 22px;
+  }
+}
+
+/* =========================================
+   반응형 - Mobile (768px 이하)
+========================================= */
+
+@media (max-width: 768px) {
+  .gnb {
+    height: 70px;
+    padding: 0 20px;
+  }
+
+  .gnb ul {
+    gap: 18px;
+  }
+
+  .gnb a {
+    font-size: 16px;
+  }
+
+  .card {
+    width: 92%;
+    height: 420px;
+    border-radius: 18px;
+  }
+
+  .text {
+    margin-bottom: 150px;
+    font-size: 20px;
+  }
+
+  .tag,
+  .tag:hover {
+    transform: translate(-50%, -50%) rotate(-4deg);
+  }
+
+  .tag {
+    top: 50%;
+    left: 50%;
+    width: 230px;
+    padding: 15px;
+    font-size: 15px;
+  }
+
+  .tag:hover {
+    transform: translate(-50%, -50%) rotate(-2deg) scale(1.04);
+  }
+
+  .about,
+  .portfolio {
+    margin: 100px auto;
+  }
+
+  .about h2,
+  .portfolio h2 {
+    font-size: 36px;
+  }
+
+  .info {
+    padding: 28px 24px;
+  }
+
+  .info h2 {
+    margin-bottom: 24px;
+    font-size: 26px;
+  }
+
+  .skill,
+  .experience {
+    padding: 24px;
+  }
+
+  .info .row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .info .row span {
+    width: auto;
+  }
+
+  .project img {
+    border-radius: 14px;
+  }
+
+  .content h3 {
+    font-size: 26px;
+  }
+
+  .btns {
+    flex-wrap: wrap;
+  }
+
+  .design-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .icons {
+    flex-wrap: wrap;
+  }
+
+  .footer {
+    padding: 40px 25px;
+  }
+
+  .footer h2 {
+    font-size: 34px;
+  }
+
+  .modal-content {
+    width: 95%;
+  }
+}
+
+/* =========================================
+   반응형 - Small Mobile (480px 이하)
+========================================= */
+
+@media (max-width: 480px) {
+  .card {
+    height: 360px;
+  }
+
+  .text {
+    margin-bottom: 120px;
+    font-size: 18px;
+  }
+
+  .tag {
+    top: 50%;
+    left: 50%;
+    width: 240px;
+    padding: 12px;
+    font-size: 13px;
+    transform: translate(-50%, -50%) rotate(-4deg);
+  }
+
+  .tag:hover {
+    transform: translate(-50%, -50%) rotate(-2deg) scale(1.04);
+  }
+
+  .photo img {
+    width: 200px;
+  }
+
+  .portfolio h2,
+  .about h2 {
+    font-size: 30px;
+  }
+
+  .content h3 {
+    font-size: 22px;
+  }
+
+  .content p {
+    font-size: 15px;
+  }
+
+  .btns a {
+    width: 100%;
+    text-align: center;
+  }
+
+  .footer {
+    margin: 80px auto;
+  }
+
+  .footer h2 {
+    font-size: 22px;
+  }
+}
+
+/* =========================================
+   SCROLL REVEAL
+========================================= */
+
+.reveal {
   opacity: 0;
-  visibility: hidden;
-  pointer-events: none;
-  transition: 0.8s ease;
+  transform: translateY(50px);
+  transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+  transition-delay: var(--reveal-delay, 0s);
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* 그리드 카드 순차 딜레이 */
+.grid .project:nth-child(1) {
+  --reveal-delay: 0s;
+}
+.grid .project:nth-child(2) {
+  --reveal-delay: 0.12s;
+}
+.grid .project:nth-child(3) {
+  --reveal-delay: 0.24s;
+}
+.grid .project:nth-child(4) {
+  --reveal-delay: 0.36s;
+}
+
+.design-grid .design-item:nth-child(1) {
+  --reveal-delay: 0s;
+}
+.design-grid .design-item:nth-child(2) {
+  --reveal-delay: 0.1s;
+}
+.design-grid .design-item:nth-child(3) {
+  --reveal-delay: 0.2s;
+}
+.design-grid .design-item:nth-child(4) {
+  --reveal-delay: 0.3s;
+}
+
+.about-bottom .skill {
+  --reveal-delay: 0s;
+}
+.about-bottom .experience {
+  --reveal-delay: 0.12s;
+}
+
+/* 모션 최소화 설정을 켠 사용자는 애니메이션 없이 바로 표시 */
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
 }
