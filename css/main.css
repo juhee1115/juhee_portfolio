@@ -472,6 +472,7 @@
 
 .content .project-sub{
   font-size: 15px;
+  color: ;
 }
 
 .portfolio h2 {
@@ -1205,7 +1206,7 @@
   }
 
   .text {
-    margin-bottom: 160px;
+    margin-bottom: 200px;
     font-size: 18px;
   }
 
@@ -1230,15 +1231,15 @@
     flex-direction: row;
   }
   .info .row span {
-    font-size: 16px;
-  }
-
-  .info .row p {
     font-size: 14px;
   }
 
+  .info .row p {
+    font-size: 12px;
+  }
+
   .experience p {
-    font-size: 16px;
+    font-size: 14px;
   }
   .about {
     gap: 0px;
@@ -1250,28 +1251,31 @@
 
   .portfolio h2,
   .about h2 {
-    font-size: 25px;
+    font-size: 20px;
   }
 
   .content {
     padding: 0px;
   }
-
+.content .project-sub{
+  font-size: 10px;
+}
   .content h3 {
     font-size: 15px;
   }
 
   .content p {
-    font-size: 13px;
+    font-size: 14px;
   }
 
   .btns {
     gap: 5px;
   }
+
   .btns a {
     width: 100%;
-
     text-align: center;
+    font-size: 14px;
   }
 
   .footer {
@@ -1341,10 +1345,7 @@
     height: 180px;
   }
 
-  .info .row p {
-    font-size: 18px;
-  }
-
+ 
   .ai-card p {
     font-size: 13px;
   }
