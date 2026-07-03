@@ -399,8 +399,12 @@
 .info .row span {
   width: 100px;
   color: var(--gray);
-  font-size: 16px;
+  font-size: 24px;
   letter-spacing: 2px;
+}
+
+.row {
+  gap: 60px;
 }
 
 .info .row p {
@@ -434,12 +438,12 @@
 .experience strong {
   display: block;
   margin-bottom: 6px;
-  font-size: 18px;
+  font-size: 20px;
 }
 
 .experience p {
   color: #999;
-  font-size: 15px;
+  font-size: 20px;
 }
 
 /* =========================================================================
@@ -531,7 +535,7 @@
 
 .content p {
   color: #bbb;
-  font-size: 16px;
+  font-size: 20px;
   line-height: 1.8;
 }
 
@@ -775,7 +779,7 @@
   max-width: 700px;
   margin-bottom: 60px;
   color: #999;
-  font-size: 18px;
+  font-size: 20px;
   line-height: 1.8;
 }
 
@@ -1193,7 +1197,7 @@
 
 @media (max-width: 480px) {
   .card {
-    height: 360px;
+    height: 270px;
   }
 
   .text {
@@ -1218,12 +1222,34 @@
     width: 200px;
   }
 
+  .info .row {
+    flex-direction: row;
+  }
+  .info .row span {
+    font-size: 16px;
+  }
+
+  .info .row p {
+    font-size: 14px;
+  }
+
+  .experience p {
+    font-size: 16px;
+  }
+  .about {
+    gap: 0px;
+  }
+
+  .project {
+    gap: 5px;
+  }
+
   .portfolio h2,
   .about h2 {
     font-size: 25px;
   }
 
-  .content{
+  .content {
     padding: 0px;
   }
 
@@ -1235,9 +1261,12 @@
     font-size: 13px;
   }
 
+  .btns {
+    gap: 5px;
+  }
   .btns a {
     width: 100%;
-    
+
     text-align: center;
   }
 
@@ -1312,7 +1341,7 @@
     font-size: 18px;
   }
 
-  .ai-card p{
+  .ai-card p {
     font-size: 13px;
   }
 
