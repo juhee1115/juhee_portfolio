@@ -1,61 +1,70 @@
 @import url("reset.css");
 
-/* =========================================
+/* =========================================================================
    INTRO
-========================================= */
+========================================================================= */
 
 .intro {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 100%;
   height: 100vh;
-  position: relative;
   overflow: hidden;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+}
+
+.intro::before,
+.intro::after {
+  content: "";
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+  filter: blur(180px);
 }
 
 .intro::before {
-  content: "";
-  position: absolute;
   top: -180px;
   left: -180px;
-  width: 600px;
-  height: 600px;
   background: var(--blue);
-  border-radius: 50%;
-  filter: blur(180px);
   opacity: 0.18;
 }
 
 .intro::after {
-  content: "";
-  position: absolute;
-  bottom: -150px;
   right: -150px;
+  bottom: -150px;
   width: 500px;
   height: 500px;
   background: var(--orange);
-  border-radius: 50%;
-  filter: blur(180px);
   opacity: 0.16;
 }
 
-/* Card */
+/* ---- Card ---- */
 
 .card {
   position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   width: 1000px;
   height: 650px;
   overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
   border-radius: 24px;
   background: linear-gradient(145deg, #7aa2ff, #4c6fff);
   box-shadow: 0 35px 70px rgba(0, 0, 0, 0.45);
   transition: 0.8s;
   animation: floating 5s ease-in-out infinite;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+}
+
+.card.open {
+  animation: none;
+  transform: translateY(-20px) scale(1.03);
 }
 
 @keyframes floating {
@@ -76,16 +85,7 @@
   }
 }
 
-.card:hover {
-  transform: translateY(-10px);
-}
-
-.card.open {
-  transform: translateY(-20px) scale(1.03);
-  animation: none;
-}
-
-/* Envelope */
+/* ---- Envelope ---- */
 
 .envelope {
   position: absolute;
@@ -111,18 +111,18 @@
 }
 
 .card.open .envelope {
-  transform: rotateX(180deg);
   opacity: 0;
+  transform: rotateX(180deg);
 }
 
-/* Text */
+/* ---- Text ---- */
 
 .text {
   position: relative;
   z-index: 10;
   margin-bottom: 280px;
+  color: #000;
   font-size: 30px;
-  color: #000000;
   text-align: center;
   white-space: pre-wrap;
   transition: 0.6s;
@@ -133,7 +133,7 @@
   transform: translateY(-25px);
 }
 
-/* Tag */
+/* ---- Tag ---- */
 
 .tag {
   position: absolute;
@@ -145,8 +145,8 @@
   overflow: hidden;
   background: #111;
   color: #fff;
-  text-align: center;
   font-size: 27px;
+  text-align: center;
   cursor: pointer;
   transform: translate(-50%, -50%) rotate(-4deg);
   transition: 0.4s;
@@ -169,8 +169,8 @@
 }
 
 .tag:hover {
-  transform: translate(-50%, -50%) rotate(-2deg) translateY(-4px);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+  transform: translate(-50%, -50%) rotate(-2deg) translateY(-4px);
 }
 
 .tag:hover::before {
@@ -183,27 +183,27 @@
   transform: translateX(-50%) scale(0.8);
 }
 
-/* =========================================
+/* =========================================================================
    GNB (고정 네비게이션)
-========================================= */
+========================================================================= */
 
 .gnb {
   position: fixed;
-  top: 0px;
+  top: 0;
   left: 50%;
   z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
   width: 100%;
   height: 80px;
-  padding: 0px 150px;
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  transform: translateX(-50%);
+  padding: 0 150px;
   background: rgba(0, 0, 0, 0.85);
   border-bottom: 1px solid rgba(255, 255, 255, 0.164);
   backdrop-filter: blur(10px);
   opacity: 0;
   visibility: hidden;
+  transform: translateX(-50%);
   transition: 0.4s ease;
 }
 
@@ -234,19 +234,19 @@
   opacity: 0.7;
 }
 
-/* =========================================
+/* =========================================================================
    ABOUT
-========================================= */
+========================================================================= */
 
 .about {
   position: relative;
   z-index: 0;
-  width: min(1400px, 90%);
-  margin: 180px auto;
   display: grid;
+  align-items: stretch;
   grid-template-columns: 320px 1fr;
   gap: 100px;
-  align-items: stretch;
+  width: min(1400px, 90%);
+  margin: 180px auto;
 }
 
 .about::before {
@@ -262,10 +262,12 @@
   opacity: 0.35;
 }
 
+/* ---- Photo (좌측 고정 프로필) ---- */
+
 .photo {
-  width: 100%;
   position: sticky;
   top: 140px;
+  width: 100%;
 }
 
 .photo h2 {
@@ -302,18 +304,20 @@
 }
 
 .photo-meta span {
+  color: var(--gray);
   font-size: 16px;
   letter-spacing: 1px;
-  color: var(--gray);
 }
 
+/* ---- About Right (정보 / 스킬 / 경력) ---- */
+
 .about-right {
-  width: 100%;
-  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   gap: 60px;
+  width: 100%;
+  height: 100%;
   transform: translateY(130px);
 }
 
@@ -324,38 +328,34 @@
 
 .about-bottom {
   display: grid;
+  align-items: start;
   grid-template-columns: 1fr 1fr;
   gap: 40px;
-  align-items: start;
+}
+
+.skill,
+.experience,
+.info {
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 18px;
+  background: linear-gradient(
+    160deg,
+    rgba(255, 255, 255, 0.045),
+    rgba(255, 255, 255, 0.01)
+  );
 }
 
 .skill,
 .experience {
   padding: 32px 36px;
-  border: 1px solid rgba(255, 255, 255, 0.07);
-  border-radius: 18px;
-  background: linear-gradient(
-    160deg,
-    rgba(255, 255, 255, 0.045),
-    rgba(255, 255, 255, 0.01)
-  );
 }
-
-/* Information rows (About > .info) */
 
 .info {
   width: 100%;
   padding: 40px 45px;
-  border: 1px solid rgba(255, 255, 255, 0.07);
-  border-radius: 18px;
-  background: linear-gradient(
-    160deg,
-    rgba(255, 255, 255, 0.045),
-    rgba(255, 255, 255, 0.01)
-  );
 }
 
-/* 더 구체적인 선택자로 .about-right h2 보다 우선 적용되도록 지정 */
+/* 더 구체적인 선택자로 .about-right h2 보다 우선 적용 */
 .info h2 {
   margin-bottom: 30px;
   font-size: 32px;
@@ -371,10 +371,10 @@
 
 .info .row span {
   width: 100px;
+  color: var(--gray);
   font-size: 16px;
   font-weight: 600;
   letter-spacing: 2px;
-  color: var(--gray);
 }
 
 .info .row p {
@@ -391,12 +391,10 @@
   color: var(--orange);
 }
 
-/* Skill / Experience */
-
 .icons {
   display: flex;
-  gap: 12px;
   align-items: center;
+  gap: 12px;
 }
 
 .icons img {
@@ -414,13 +412,13 @@
 }
 
 .experience p {
-  font-size: 15px;
   color: #999;
+  font-size: 15px;
 }
 
-/* =========================================
+/* =========================================================================
    PORTFOLIO (UX/UI, PUBLISHING, DESIGN 공통)
-========================================= */
+========================================================================= */
 
 .portfolio {
   position: relative;
@@ -448,32 +446,29 @@
   font-size: 52px;
 }
 
-#uxui h2::after {
-  content: "";
-  display: block;
-  width: 1px;
-  height: 2px;
-  margin-top: 10px;
-  background: #888;
-}
-
-#publishing h2::after {
-  content: "";
-  display: block;
-  width: 240px;
-  height: 2px;
-  margin-top: 10px;
-  background: #888;
-}
-
+#uxui h2::after,
+#publishing h2::after,
 #design h2::after {
   content: "";
   display: block;
-  width: 150px;
   height: 2px;
   margin-top: 10px;
   background: #888;
 }
+
+#uxui h2::after {
+  width: 100px;
+}
+
+#publishing h2::after {
+  width: 240px;
+}
+
+#design h2::after {
+  width: 150px;
+}
+
+/* ---- Project Grid (UX/UI, Publishing) ---- */
 
 .grid {
   display: grid;
@@ -509,9 +504,9 @@
 }
 
 .content p {
+  color: #bbb;
   font-size: 16px;
   line-height: 1.8;
-  color: #bbb;
 }
 
 .btns {
@@ -524,18 +519,18 @@
   padding: 8px 22px;
   border: 1px solid #fff;
   border-radius: 40px;
-  color: white;
+  color: #fff;
   font-size: 14px;
   text-decoration: none;
   transition: 0.3s;
 }
 
 .btns a:hover {
-  background: white;
+  background: #fff;
   color: #111;
 }
 
-/* Design grid */
+/* ---- Design Grid ---- */
 
 .design-grid {
   display: grid;
@@ -560,17 +555,17 @@
   text-align: center;
 }
 
-/* =========================================
+/* =========================================================================
    MODAL
-========================================= */
+========================================================================= */
 
 .modal {
   position: fixed;
   inset: 0;
   z-index: 9999;
   display: none;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
 }
 
 .modal.show {
@@ -588,8 +583,8 @@
   width: 900px;
   max-width: 95%;
   max-height: 90vh;
-  overflow-y: auto;
   padding: 20px;
+  overflow-y: auto;
   border-radius: 16px;
   background: #111;
 }
@@ -605,14 +600,14 @@
   right: 10px;
   background: none;
   border: none;
-  color: white;
+  color: #fff;
   font-size: 24px;
   cursor: pointer;
 }
 
-/* =========================================
+/* =========================================================================
    STACK (기술 태그 마퀴)
-========================================= */
+========================================================================= */
 
 .stack {
   margin: 220px 0;
@@ -625,22 +620,22 @@
 }
 
 .track {
-  width: max-content;
   display: flex;
   gap: 70px;
+  width: max-content;
   animation: marquee 28s linear infinite;
 }
 
 .track span {
+  color: #2c2c2c;
   font-size: 72px;
   font-weight: 700;
-  color: #2c2c2c;
   white-space: nowrap;
   transition: 0.35s;
 }
 
 .track span:hover {
-  color: white;
+  color: #fff;
   transform: translateY(-6px);
 }
 
@@ -653,16 +648,13 @@
   }
 }
 
-/* =========================================
+/* =========================================================================
    FOOTER
-========================================= */
+========================================================================= */
 
 .footer {
   width: min(1000px, 90%);
   margin: 180px auto 80px;
-  padding: 0;
-  background: none;
-  border: none;
 }
 
 .footer h2 {
@@ -673,9 +665,9 @@
 
 .footer-text {
   margin-bottom: 80px;
+  color: #8f8f8f;
   font-size: 17px;
   line-height: 1.8;
-  color: #8f8f8f;
 }
 
 .footer-contact {
@@ -687,14 +679,14 @@
 .footer-contact span {
   display: block;
   margin-bottom: 12px;
+  color: #666;
   font-size: 13px;
   letter-spacing: 3px;
-  color: #666;
 }
 
 .footer-contact p {
+  color: #fff;
   font-size: 24px;
-  color: white;
 }
 
 .footer-line {
@@ -706,8 +698,8 @@
 
 .footer-bottom {
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
 }
 
 .footer-links {
@@ -722,20 +714,239 @@
 }
 
 .footer-links a:hover {
-  color: white;
+  color: #fff;
 }
 
 .footer-bottom small {
   color: #555;
 }
+/* ========================================================================= 
+AI 활용영역
+========================================================================= */
+/* ===================================
+   AI WORKFLOW
+=================================== */
 
-/* =========================================
+.ai-workflow{
+
+width:min(1400px,90%);
+
+margin:180px auto;
+
+}
+
+.ai-workflow h2{
+
+padding-top:100px;
+
+font-size:52px;
+
+margin-bottom:18px;
+
+}
+
+.ai-workflow h2::after{
+
+content:"";
+
+display:block;
+
+width:170px;
+
+height:2px;
+
+margin-top:12px;
+
+background:#777;
+
+}
+
+.ai-desc{
+
+max-width:700px;
+
+margin-bottom:60px;
+
+line-height:1.8;
+
+color:#999;
+
+font-size:18px;
+
+}
+
+.ai-grid{
+
+display:grid;
+
+grid-template-columns:repeat(2,1fr);
+
+gap:35px;
+
+}
+
+.ai-card{
+
+padding:24px;
+
+border-radius:18px;
+
+background:linear-gradient(
+160deg,
+rgba(255,255,255,.04),
+rgba(255,255,255,.015));
+
+border:1px solid rgba(255,255,255,.08);
+
+transition:.35s;
+
+}
+
+.ai-card:hover{
+
+transform:translateY(-8px);
+
+border-color:#4c6fff;
+
+box-shadow:0 20px 45px rgba(0,0,0,.3);
+
+}
+
+.ai-top{
+
+display:flex;
+
+align-items:center;
+
+gap:18px;
+
+margin-bottom:18px;
+
+}
+
+.number{
+
+font-size:28px;
+
+font-weight:700;
+
+color:#4c6fff;
+
+}
+
+.ai-top h3{
+
+font-size:24px;
+
+margin-bottom:4px;
+
+}
+
+.ai-top small{
+
+color:#7ea2ff;
+
+}
+
+.ai-card p{
+
+margin-bottom:20px;
+
+color:#999;
+
+line-height:1.7;
+
+}
+
+.ai-card img{
+
+width:100%;
+
+height:220px;
+
+object-fit:cover;
+
+border-radius:14px;
+
+transition:.35s;
+
+}
+
+.ai-card:hover img{
+
+transform:scale(1.03);
+
+}
+
+/* =========================================================================
+   SCROLL REVEAL
+========================================================================= */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(50px);
+  transition:
+    opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+  transition-delay: var(--reveal-delay, 0s);
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* 그리드 카드 순차 딜레이 */
+.grid .project:nth-child(1) {
+  --reveal-delay: 0s;
+}
+.grid .project:nth-child(2) {
+  --reveal-delay: 0.12s;
+}
+.grid .project:nth-child(3) {
+  --reveal-delay: 0.24s;
+}
+.grid .project:nth-child(4) {
+  --reveal-delay: 0.36s;
+}
+
+.design-grid .design-item:nth-child(1) {
+  --reveal-delay: 0s;
+}
+.design-grid .design-item:nth-child(2) {
+  --reveal-delay: 0.1s;
+}
+.design-grid .design-item:nth-child(3) {
+  --reveal-delay: 0.2s;
+}
+.design-grid .design-item:nth-child(4) {
+  --reveal-delay: 0.3s;
+}
+
+.about-bottom .skill {
+  --reveal-delay: 0s;
+}
+.about-bottom .experience {
+  --reveal-delay: 0.12s;
+}
+
+/* 모션 최소화 설정을 켠 사용자는 애니메이션 없이 바로 표시 */
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+/* =========================================================================
    반응형 - Tablet (1200px 이하)
-========================================= */
+========================================================================= */
 
 @media (max-width: 1200px) {
   .about,
-  .portfolio {
+  .portfolio,
+  .footer {
     width: 90%;
   }
 
@@ -761,18 +972,14 @@
     padding: 20px 0;
   }
 
-  .footer {
-    width: 90%;
-  }
-
   .gnb {
     padding: 0 50px;
   }
 }
 
-/* =========================================
+/* =========================================================================
    반응형 - Tablet (992px 이하)
-========================================= */
+========================================================================= */
 
 @media (max-width: 992px) {
   .about {
@@ -806,26 +1013,16 @@
     align-items: center;
   }
 
+  .info {
+    margin-top: 0;
+  }
+
   .grid {
     grid-template-columns: 1fr;
   }
 
   .design-grid {
     grid-template-columns: repeat(2, 1fr);
-  }
-
-  .footer-info {
-    flex-direction: column;
-    gap: 40px;
-  }
-
-  .info {
-    margin-top: 0;
-  }
-
-  .tag {
-    width: 420px;
-    font-size: 20px;
   }
 
   .card {
@@ -835,11 +1032,16 @@
   .text {
     font-size: 22px;
   }
+
+  .tag {
+    width: 420px;
+    font-size: 20px;
+  }
 }
 
-/* =========================================
+/* =========================================================================
    반응형 - Mobile (768px 이하)
-========================================= */
+========================================================================= */
 
 @media (max-width: 768px) {
   .gnb {
@@ -866,17 +1068,13 @@
     font-size: 20px;
   }
 
-  .tag,
-  .tag:hover {
-    transform: translate(-50%, -50%) rotate(-4deg);
-  }
-
   .tag {
     top: 50%;
     left: 50%;
     width: 230px;
     padding: 15px;
     font-size: 15px;
+    transform: translate(-50%, -50%) rotate(-4deg);
   }
 
   .tag:hover {
@@ -902,11 +1100,6 @@
     font-size: 26px;
   }
 
-  .skill,
-  .experience {
-    padding: 24px;
-  }
-
   .info .row {
     flex-direction: column;
     align-items: flex-start;
@@ -915,6 +1108,11 @@
 
   .info .row span {
     width: auto;
+  }
+
+  .skill,
+  .experience {
+    padding: 24px;
   }
 
   .project img {
@@ -950,9 +1148,9 @@
   }
 }
 
-/* =========================================
+/* =========================================================================
    반응형 - Small Mobile (480px 이하)
-========================================= */
+========================================================================= */
 
 @media (max-width: 480px) {
   .card {
@@ -1005,65 +1203,5 @@
 
   .footer h2 {
     font-size: 22px;
-  }
-}
-
-/* =========================================
-   SCROLL REVEAL
-========================================= */
-
-.reveal {
-  opacity: 0;
-  transform: translateY(50px);
-  transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1),
-    transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
-  transition-delay: var(--reveal-delay, 0s);
-}
-
-.reveal.active {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* 그리드 카드 순차 딜레이 */
-.grid .project:nth-child(1) {
-  --reveal-delay: 0s;
-}
-.grid .project:nth-child(2) {
-  --reveal-delay: 0.12s;
-}
-.grid .project:nth-child(3) {
-  --reveal-delay: 0.24s;
-}
-.grid .project:nth-child(4) {
-  --reveal-delay: 0.36s;
-}
-
-.design-grid .design-item:nth-child(1) {
-  --reveal-delay: 0s;
-}
-.design-grid .design-item:nth-child(2) {
-  --reveal-delay: 0.1s;
-}
-.design-grid .design-item:nth-child(3) {
-  --reveal-delay: 0.2s;
-}
-.design-grid .design-item:nth-child(4) {
-  --reveal-delay: 0.3s;
-}
-
-.about-bottom .skill {
-  --reveal-delay: 0s;
-}
-.about-bottom .experience {
-  --reveal-delay: 0.12s;
-}
-
-/* 모션 최소화 설정을 켠 사용자는 애니메이션 없이 바로 표시 */
-@media (prefers-reduced-motion: reduce) {
-  .reveal {
-    opacity: 1;
-    transform: none;
-    transition: none;
   }
 }
