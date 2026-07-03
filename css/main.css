@@ -1275,6 +1275,7 @@
     width: 100%;
     text-align: center;
     font-size: 14px;
+    padding: 12px 22px;
   }
 
   .btns {
@@ -1332,7 +1333,7 @@
   .footer-contact {
     gap: 20px;
   }
-  .footer-contact {
+  .footer-contact p{
     font-size: 20px;
   }
 }
