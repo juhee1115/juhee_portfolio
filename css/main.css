@@ -470,6 +470,10 @@
   opacity: 0.3;
 }
 
+.content .project-sub{
+  font-size: 15px;
+}
+
 .portfolio h2 {
   padding-top: 100px;
   margin-bottom: 30px;
@@ -550,7 +554,7 @@
   border: 1px solid #fff;
   border-radius: 40px;
   color: #fff;
-  font-size: 14px;
+  font-size: 20px;
   text-decoration: none;
   transition: 0.3s;
 }
@@ -785,7 +789,7 @@
 
 .ai-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   gap: 35px;
 }
 
@@ -1254,7 +1258,7 @@
   }
 
   .content h3 {
-    font-size: 18px;
+    font-size: 15px;
   }
 
   .content p {
