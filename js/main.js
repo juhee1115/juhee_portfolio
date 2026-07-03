@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // =====================
   // INTRO TYPE
   // =====================
-  const text = `안녕하세요.
+  const text = `
 사용자의 경험을 디자인하는
 UX/UI 디자이너 박주희입니다.`;
   let i = 0;

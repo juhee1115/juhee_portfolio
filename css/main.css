@@ -236,6 +236,7 @@
 }
 
 .logo {
+  display: none;
   font-size: 22px;
   font-weight: 700;
 }
@@ -252,34 +253,6 @@
 
 .menu li {
   list-style: none;
-  opacity: 0;
-  transform: translateX(40px);
-  transition: 0.4s;
-}
-
-.menu.active li {
-  opacity: 1;
-  transform: none;
-}
-
-.menu.active li:nth-child(2) {
-  transition-delay: 0.1s;
-}
-
-.menu.active li:nth-child(3) {
-  transition-delay: 0.18s;
-}
-
-.menu.active li:nth-child(4) {
-  transition-delay: 0.26s;
-}
-
-.menu.active li:nth-child(5) {
-  transition-delay: 0.34s;
-}
-
-.menu.active li:nth-child(6) {
-  transition-delay: 0.42s;
 }
 
 .menu a {
@@ -427,7 +400,6 @@
   width: 100px;
   color: var(--gray);
   font-size: 16px;
-  font-weight: 600;
   letter-spacing: 2px;
 }
 
@@ -1043,6 +1015,10 @@
     padding: 0 24px;
   }
 
+  .logo {
+    display: block;
+  }
+
   .gnb ul {
     gap: 18px;
   }
@@ -1075,6 +1051,37 @@
 
   .menu.active {
     right: 0;
+  }
+
+  .menu li {
+    opacity: 0;
+    transform: translateX(40px);
+    transition: 0.4s;
+  }
+
+  .menu.active li {
+    opacity: 1;
+    transform: none;
+  }
+
+  .menu.active li:nth-child(2) {
+    transition-delay: 0.1s;
+  }
+
+  .menu.active li:nth-child(3) {
+    transition-delay: 0.18s;
+  }
+
+  .menu.active li:nth-child(4) {
+    transition-delay: 0.26s;
+  }
+
+  .menu.active li:nth-child(5) {
+    transition-delay: 0.34s;
+  }
+
+  .menu.active li:nth-child(6) {
+    transition-delay: 0.42s;
   }
 
   .close-btn {
@@ -1179,6 +1186,7 @@
     width: 95%;
   }
 }
+
 /* =========================================================================
    반응형 - Small Mobile (480px 이하)
 ========================================================================= */
@@ -1189,7 +1197,7 @@
   }
 
   .text {
-    margin-bottom: 120px;
+    margin-bottom: 160px;
     font-size: 18px;
   }
 
@@ -1212,19 +1220,24 @@
 
   .portfolio h2,
   .about h2 {
-    font-size: 30px;
+    font-size: 25px;
+  }
+
+  .content{
+    padding: 0px;
   }
 
   .content h3 {
-    font-size: 22px;
+    font-size: 18px;
   }
 
   .content p {
-    font-size: 15px;
+    font-size: 13px;
   }
 
   .btns a {
     width: 100%;
+    
     text-align: center;
   }
 
@@ -1299,7 +1312,17 @@
     font-size: 18px;
   }
 
+  .ai-card p{
+    font-size: 13px;
+  }
+
   .design-grid {
- grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+  }
+
+  .design-item p {
+    margin-top: 10px;
+    font-size: 13px;
   }
 }
