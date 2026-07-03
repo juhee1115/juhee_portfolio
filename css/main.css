@@ -1249,7 +1249,10 @@
     gap: 0px;
   }
 
- 
+     .grid {
+        grid-template-columns: 1fr;
+    }
+
   .project {
     align-items: flex-start;
     gap: 12px;
@@ -1287,6 +1290,12 @@
   .content .project-sub {
     font-size: 10px;
   }
+
+      .design-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    
 .ai-workflow h2{
   font-size: 20px;
 }
