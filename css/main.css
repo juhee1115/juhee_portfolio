@@ -577,6 +577,11 @@
   gap: 25px;
 }
 
+.design-item{
+  width: 331px;
+  height: 414px;
+}
+
 .design-item img {
   width: 100%;
   border-radius: 15px;
@@ -700,6 +705,8 @@
   margin-bottom: 18px;
   font-size: 84px;
   font-weight: 700;
+  color: #333;
+  
 }
 
 .footer-text {
@@ -1022,6 +1029,7 @@
 ========================================================================= */
 
 @media (max-width: 768px) {
+
   .gnb {
     justify-content: space-between;
     height: 70px;
@@ -1169,6 +1177,10 @@
 
   .project img {
     border-radius: 14px;
+  }
+
+  .content {
+    width: 100%;
   }
 
   .content h3 {
