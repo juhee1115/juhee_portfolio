@@ -470,9 +470,9 @@
   opacity: 0.3;
 }
 
-.content .project-sub{
+.content .project-sub {
   font-size: 15px;
-  color: ;
+  color: rgb(106, 106, 250);
 }
 
 .portfolio h2 {
@@ -512,15 +512,16 @@
 }
 
 .project {
+  width: 100%;
   display: flex;
   gap: 20px;
 }
 
 .project img {
-  width: 380px;
-  height: 300px;
-  border-radius: 18px;
-  transition: 0.4s;
+  /* width: 380px;
+  height: 300px; */
+  /* border-radius: 18px; */
+  /* transition: 0.4s; */
 }
 
 .project img:hover {
@@ -528,6 +529,7 @@
 }
 
 .content {
+  width: 40%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -1230,6 +1232,7 @@
   .info .row {
     flex-direction: row;
   }
+
   .info .row span {
     font-size: 14px;
   }
@@ -1241,12 +1244,26 @@
   .experience p {
     font-size: 14px;
   }
+
   .about {
     gap: 0px;
   }
 
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
   .project {
-    gap: 5px;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  .content {
+    width: 100%;
+  }
+  .project img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
   }
 
   .portfolio h2,
@@ -1254,109 +1271,10 @@
     font-size: 20px;
   }
 
-  .content {
-    padding: 0px;
+  .content .project-sub {
+    font-size: 10px;
   }
-.content .project-sub{
-  font-size: 10px;
-}
-  .content h3 {
-    font-size: 15px;
-  }
-
-  .content p {
-    font-size: 14px;
-  }
-
-  .btns {
-    gap: 5px;
-  }
-
-  .btns a {
-    width: 100%;
-    text-align: center;
-    font-size: 14px;
-  }
-
-  .footer {
-    margin: 80px auto;
-  }
-
-  .footer h2 {
-    font-size: 22px;
-  }
-
   .footer-contact {
     flex-direction: column;
-    gap: 24px;
-    margin-bottom: 40px;
-  }
-
-  .footer-contact p {
-    font-size: 18px;
-  }
-
-  .footer-bottom {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 16px;
-  }
-
-  .footer-links {
-    flex-wrap: wrap;
-    gap: 18px;
-  }
-
-  .gnb {
-    padding: 0 16px;
-  }
-
-  .track {
-    gap: 40px;
-  }
-
-  .track span {
-    font-size: 40px;
-  }
-
-  .ai-workflow h2 {
-    font-size: 26px;
-  }
-
-  .ai-desc {
-    margin-bottom: 40px;
-    font-size: 15px;
-  }
-
-  .ai-grid {
-    grid-template-columns: 1fr;
-    gap: 20px;
-  }
-
-  .ai-card {
-    padding: 18px;
-  }
-
-  .ai-top h3 {
-    font-size: 20px;
-  }
-
-  .ai-card img {
-    height: 180px;
-  }
-
- 
-  .ai-card p {
-    font-size: 13px;
-  }
-
-  .design-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 14px;
-  }
-
-  .design-item p {
-    margin-top: 10px;
-    font-size: 13px;
   }
 }
