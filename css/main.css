@@ -1249,9 +1249,9 @@
     gap: 0px;
   }
 
-     .grid {
-        grid-template-columns: 1fr;
-    }
+  .grid {
+    grid-template-columns: 1fr;
+  }
 
   .project {
     align-items: flex-start;
@@ -1261,10 +1261,9 @@
     width: 100%;
   }
 
-  .content p{
+  .content p {
     line-height: 1.5;
     font-size: 14px;
-
   }
   .project img {
     width: 100%;
@@ -1278,7 +1277,7 @@
     font-size: 14px;
   }
 
-  .btns{
+  .btns {
     gap: 5px;
   }
   .portfolio h2,
@@ -1286,38 +1285,54 @@
     font-size: 20px;
   }
 
-
   .content .project-sub {
     font-size: 10px;
   }
 
-      .design-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
+  .design-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .design-item p {
+    font-size: 14px;
+  }
 
-    
-.ai-workflow h2{
-  font-size: 20px;
-}
-.ai-desc{
-  font-size: 14px;
-}
+  .ai-workflow h2 {
+    font-size: 20px;
+  }
+  .ai-desc {
+    font-size: 12px;
+  }
 
-.ai-card{
-  font-size: 14px;
-}
-.footer h2{
-  color: #333;
-}
+  .ai-card {
+    font-size: 14px;
+  }
+
+  .ai-top h3 {
+    font-size: 20px;
+  }
+
+  .ai-top small {
+    font-size: 14px;
+  }
+
+  .ai-card p {
+    font-size: 12px;
+  }
+  .footer h2 {
+    color: #333;
+  }
   .footer-contact {
     flex-direction: column;
   }
 
-  .footer-text{
+  .footer-text {
     font-size: 14px;
   }
 
-.footer-contact{
-  gap: 20px;
-}
+  .footer-contact {
+    gap: 20px;
+  }
+  .footer-contact {
+    font-size: 20px;
+  }
 }
