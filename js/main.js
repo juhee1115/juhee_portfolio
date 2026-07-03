@@ -119,3 +119,22 @@ UX/UI 디자이너 박주희입니다.`;
   closeBtn.addEventListener("click", closeModal);
   modalBg.addEventListener("click", closeModal);
 });
+
+
+const menuBtn = document.querySelector(".menu-btn");
+const menu = document.querySelector(".menu");
+const closeBtn = document.querySelector(".close-btn");
+
+menuBtn.addEventListener("click", () => {
+  menu.classList.add("active");
+});
+
+closeBtn.addEventListener("click", () => {
+  menu.classList.remove("active");
+});
+
+navLinks.forEach((link) => {
+  link.addEventListener("click", () => {
+    menu.classList.remove("active");
+  });
+});
