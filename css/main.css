@@ -1242,13 +1242,13 @@
 
   .text {
     margin-bottom: 200px;
-    font-size: 18px;
+    font-size: 15px;
   }
 
   .tag {
     top: 50%;
     left: 50%;
-    width: 240px;
+    width: 180px;
     padding: 12px;
     font-size: 13px;
     transform: translate(-50%, -50%) rotate(-4deg);
