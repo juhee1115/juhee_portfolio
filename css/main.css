@@ -517,12 +517,6 @@
   gap: 20px;
 }
 
-.project img {
-  /* width: 380px;
-  height: 300px; */
-  /* border-radius: 18px; */
-  /* transition: 0.4s; */
-}
 
 .project img:hover {
   transform: translateY(-8px);
@@ -542,8 +536,8 @@
 
 .content p {
   color: #bbb;
-  font-size: 20px;
-  line-height: 1.8;
+  font-size: 18px;
+  line-height: 1.2;
 }
 
 .btns {
@@ -553,6 +547,7 @@
 }
 
 .btns a {
+  margin-top: 35px;
   padding: 8px 22px;
   border: 1px solid #fff;
   border-radius: 40px;
@@ -656,6 +651,14 @@
 /* =========================================================================
    STACK (기술 태그 마퀴)
 ========================================================================= */
+:root {
+  /* accent spectrum — 순서대로 About / UX·UI / Publishing / Design / AI */
+  --magenta: #ff3d8a;
+  --tangerine: #ff7a29;
+  --lime: #c7f84e;
+  --violet: #8c7cff;
+  --teal: #2fe0c0;
+}
 
 .stack {
   margin: 220px 0;
@@ -675,15 +678,30 @@
 }
 
 .track span {
-  color: #2c2c2c;
-  font-size: 72px;
+  color: #333;
+  font-size: 68px;
   font-weight: 700;
   white-space: nowrap;
   transition: 0.35s;
 }
 
+.track span:nth-child(5n + 1):hover {
+  color: var(--magenta);
+}
+.track span:nth-child(5n + 2):hover {
+  color: var(--tangerine);
+}
+.track span:nth-child(5n + 3):hover {
+  color: var(--lime);
+}
+.track span:nth-child(5n + 4):hover {
+  color: var(--violet);
+}
+.track span:nth-child(5n + 5):hover {
+  color: var(--teal);
+}
+
 .track span:hover {
-  color: #fff;
   transform: translateY(-6px);
 }
 
@@ -1284,9 +1302,9 @@
   .about {
     gap: 0px;
   }
-.about-right{
-  gap: 30px;
-}
+  .about-right {
+    gap: 30px;
+  }
   .grid {
     grid-template-columns: 1fr;
   }
