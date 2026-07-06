@@ -381,7 +381,6 @@
   padding: 40px 45px;
 }
 
-
 /* 더 구체적인 선택자로 .about-right h2 보다 우선 적용 */
 .info h2 {
   margin-bottom: 30px;
@@ -402,7 +401,6 @@
   font-size: 24px;
   letter-spacing: 2px;
   color: #838383;
-
 }
 
 .row {
@@ -577,18 +575,24 @@
   gap: 25px;
 }
 
-.design-item{
+.design-item {
+  width: 331px;
+}
+
+.design-item .thumb {
+  cursor: pointer;
   width: 331px;
   height: 414px;
+  overflow: hidden;
+  border-radius: 15px;
 }
 
 .design-item img {
   width: 100%;
-  border-radius: 15px;
-  cursor: pointer;
+  height: 100%;
+  object-fit: cover;
   transition: 0.35s;
 }
-
 .design-item:hover img {
   transform: translateY(-10px);
 }
@@ -706,7 +710,6 @@
   font-size: 84px;
   font-weight: 700;
   color: #333;
-  
 }
 
 .footer-text {
@@ -1029,7 +1032,6 @@
 ========================================================================= */
 
 @media (max-width: 768px) {
-
   .gnb {
     justify-content: space-between;
     height: 70px;
@@ -1148,7 +1150,7 @@
 
   .about h2,
   .portfolio h2 {
-    font-size: 36px;
+    font-size: 26px;
   }
 
   .info {
@@ -1161,13 +1163,16 @@
   }
 
   .info .row {
-    flex-direction: column;
     align-items: flex-start;
-    gap: 8px;
   }
 
   .info .row span {
     width: auto;
+    font-size: 20px;
+  }
+
+  .info .row p {
+    font-size: 18px;
   }
 
   .skill,
@@ -1175,20 +1180,34 @@
     padding: 24px;
   }
 
+  .experience p {
+    font-size: 18px;
+  }
   .project img {
     border-radius: 14px;
   }
 
   .content {
     width: 100%;
+    padding: 0;
   }
 
+  .content p {
+    line-height: 1.3;
+    font-size: 18px;
+  }
   .content h3 {
     font-size: 26px;
   }
 
   .btns {
-    flex-wrap: wrap;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .btns a {
+    font-size: 18px;
+    text-align: center;
   }
 
   .design-grid {
@@ -1303,13 +1322,38 @@
   .content .project-sub {
     font-size: 10px;
   }
+.design-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 15px;
+}
 
-  .design-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  .design-item p {
-    font-size: 12px;
-  }
+.design-item {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* 가운데 정렬 */
+}
+
+.thumb {
+  width: 100%;
+  max-width: 330px; /* 원하는 최대 크기 */
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+.design-item img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.design-item p {
+  text-align: center;
+}
 
   .ai-workflow h2 {
     font-size: 20px;
@@ -1347,16 +1391,15 @@
   .footer-contact {
     gap: 20px;
   }
-  .footer-contact p{
+  .footer-contact p {
     font-size: 20px;
   }
 
-  .menu a{
+  .menu a {
     font-size: 15px;
   }
 
-  .logo{
+  .logo {
     font-size: 18px;
   }
-  
 }
