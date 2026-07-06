@@ -1237,11 +1237,11 @@
 
 @media (max-width: 480px) {
   .card {
-    height: 270px;
+    height: 220px;
   }
 
   .text {
-    margin-bottom: 200px;
+    margin-bottom: 150px;
     font-size: 15px;
   }
 
@@ -1284,7 +1284,9 @@
   .about {
     gap: 0px;
   }
-
+.about-right{
+  gap: 30px;
+}
   .grid {
     grid-template-columns: 1fr;
   }
