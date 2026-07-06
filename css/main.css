@@ -1022,7 +1022,7 @@
   }
 
   .tag {
-    width: 420px;
+    width: 320px;
     font-size: 20px;
   }
 }
@@ -1248,9 +1248,9 @@
   .tag {
     top: 50%;
     left: 50%;
-    width: 180px;
+    width: 220px;
     padding: 12px;
-    font-size: 13px;
+    font-size: 12px;
     transform: translate(-50%, -50%) rotate(-4deg);
   }
 
