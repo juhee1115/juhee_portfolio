@@ -31,7 +31,6 @@ body {
   min-height: 100vh;
   display: block;
   overflow-x: hidden;
-  overflow-y: auto;
   
 }
 
@@ -56,4 +55,5 @@ html {
 .card.open::after {
   opacity: 1;
   transform: scale(1.2);
+
 }

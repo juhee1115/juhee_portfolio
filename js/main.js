@@ -107,34 +107,38 @@ UX/UI 디자이너 박주희입니다.`;
     img.addEventListener("click", () => {
       modal.classList.add("show");
       modalImg.src = img.dataset.detail;
-      modalText.innerText = img.nextElementSibling.innerText;
+      // modalText.innerText = img.nextElementSibling.innerText;
+
+      document.documentElement.style.overflow = "hidden"; // html
+      document.body.style.overflow = "hidden"; // body
     });
   });
 
   function closeModal() {
     modal.classList.remove("show");
     modalImg.src = "";
+    document.body.style.overflow = "";
+    document.documentElement.style.overflow = ""; // html
   }
 
   closeBtn.addEventListener("click", closeModal);
   modalBg.addEventListener("click", closeModal);
 });
 
+// const menuBtn = document.querySelector(".menu-btn");
+// const menu = document.querySelector(".menu");
+// const closeBtn = document.querySelector(".close-btn");
 
-const menuBtn = document.querySelector(".menu-btn");
-const menu = document.querySelector(".menu");
-const closeBtn = document.querySelector(".close-btn");
+// menuBtn.addEventListener("click", () => {
+//   menu.classList.add("active");
+// });
 
-menuBtn.addEventListener("click", () => {
-  menu.classList.add("active");
-});
+// closeBtn.addEventListener("click", () => {
+//   menu.classList.remove("active");
+// });
 
-closeBtn.addEventListener("click", () => {
-  menu.classList.remove("active");
-});
-
-navLinks.forEach((link) => {
-  link.addEventListener("click", () => {
-    menu.classList.remove("active");
-  });
-});
+// navLinks.forEach((link) => {
+//   link.addEventListener("click", () => {
+//     menu.classList.remove("active");
+//   });
+// });
