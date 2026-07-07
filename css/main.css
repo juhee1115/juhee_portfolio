@@ -1317,11 +1317,15 @@
   .content {
     width: 100%;
   }
-
+   .content h3{
+    font-size: 22px;
+   }
   .content p {
     line-height: 1.5;
-    font-size: 14px;
+    font-size: 12px;
   }
+
+
   .project img {
     width: 100%;
     height: auto;
@@ -1377,6 +1381,7 @@
 
   .design-item p {
     text-align: center;
+    font-size: 12px;
   }
 
   .ai-workflow h2 {
@@ -1387,11 +1392,11 @@
   }
 
   .ai-card {
-    font-size: 14px;
+    font-size: 12px;
   }
 
   .ai-top h3 {
-    font-size: 20px;
+    font-size: 18px;
   }
 
   .ai-top small {
@@ -1415,7 +1420,7 @@
     gap: 20px;
   }
   .footer-text {
-    font-size: 14px;
+    font-size: 12px;
   }
 
   .footer-contact {
